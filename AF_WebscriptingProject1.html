@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset= "UTF-8">
+		
+		<title>JavaScript Tutorial 2</title>
+		<style>
+            title{
+                color: 
+            }
+            body {
+				background-color:darkseagreen;
+			    
+            }
+            
+            button {
+				font-family: Verdana, Arial, Helvetica;
+				font-size: 10pt;
+                position: absolute;
+                left: 300px;
+                    
+            }
+			
+			div {
+				font-family: Verdana, Arial, Helvetica;
+				font-size: 10pt;	
+            }
+            header {
+                background-color: lightblue;
+                padding: 10px;
+                
+                width: 350px;
+                height: 70px;
+                
+                border-radius: 5px 5px 5px 5px
+             
+            }
+            
+            main {
+                background-color: lightblue;
+                padding: 10px;
+                border-radius: 4px 4px 4px 4px;
+                width: 350px;
+            }
+            
+            footer {
+                background-color: lightblue;
+                padding: 10px;
+                border-radius: 3px 3px 3px 3pxl;
+                width: 350px;
+                    
+            }
+            
+        </style> <!--CUSTOMIZATION-->
+	</head>
+    <body> 
+        <title>Andre Foremans Sport Website.com</title>
+        <center><b><h1><u>Andre Foremans Sport Website Assignment</u></h1></b></center>
+        <section class="selectionBox">
+            <header>
+                <button id ="retriveFunction">Retrieve</button>
+                
+        <select input id="Month" name="Month">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select>
+        <select id="Day" name="Day">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+        </select>
+        <select id="Year" name="Year">
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+        </select>
+            </header>
+        </section>
+        <br>
+            <section class="userTextInput">
+                <main> 
+                    <div id="homeName">
+                        Home Team Name:
+                        <input type="text">
+                    </div>
+
+                    <div id="awayName">
+                        Away Team Name:
+                        <input type="text">
+                    </div>
+                    <div id="winningPitcherName">
+                        Winning Team Name:
+                        <input type="text">
+                    </div>
+                    <div id="losingPitcherName">
+                        Losing Team Name:
+                        <input type="text">
+                    </div>
+                    <div id="Venue">
+                        Venue Name:
+                        <input type="text">
+                    </div>
+                </main>    
+            </section>
+            <br>
+            
+            <section>
+                <footer>
+                    <div>
+                        <input id="Previous Game" type="button" value="Previous Game">
+                    </div>
+
+                     <div>
+                        <input id="Next Game" type="button" value="Next Game">
+                    </div>
+
+                     <div>
+                        <input id="Save Changes" type="button" value="Save Changes">
+                    </div>
+                </footer>
+            </section>
+            
+        </body>
+        <script  defer language="JavaScript" type="text/JavaScript">
+        // I couldn't figure out the API solution so I tried another way.
+        var ourRequest = new XMLHttpRequest();
+        ourRequest.open('Get', 'http://gdx.mlb.com/components/game/mlb/year_2018/month_03/day_03/miniscoreboard.json');
+        
+        var ourData = ourRequest.responseText;
+        
+        ourRequest.onload = function(){
+            ourData = ourRequest.responseText;
+            // console.log(ourData[334]); // DATA STARTS HERE
+                                      
+        } 
+        ourRequest.send(); // Send to the console
+        
+        // Take data from site, parse into JS object
+        //Cannot figure this out
+        //var exampleVariable = ourData.data.game[0] //First index of API data //DID NOT WORK
+        
+        // This didn't seem to work
+        //var jsObject = JSON.parse('http://gdx.mlb.com/components/game/mlb/year_2018/month_03/day_03/miniscoreboard.json');
+        //console.log(jsObject[334])
+        
+        // Display these properties indexes for the game
+        //var home_team_name = ourData.games.game.home_team_name; // Error I don't know how to fix
+        //var away_team_name = ourData.games.game.away_team_name;
+        
+        //var winning_first = ourData.games.game.winning_pitcher.first; // Concatonate the strings.
+        //var winning_last = ourData.games.game.winning_pitcher.last;
+        //var winner_name = winning_firstName + winning_last;
+            
+        //var losing_first = ourData.games.game.losing_pitcher.first; //Concatonate the strings.
+        //var losingg_last = ourData.games.game.losing_pitcher.last;
+        //var losing_name = winning_firstName + winning_last; 
+        
+        //var venue = ourData.games.game.losing_pitcher.venue;  
+        
+        // This would update the values inside the bars with the values gotten from the index.
+        //function updateValuesInside(){  
+        //    document.getElementById("homeName").innerHTML = home_team_name;
+        //    document.getElementById("awayName").innerHTML = away_team_name; 
+        //    document.getElementById("winningPitcherName").innerHTML = winner_name;  
+        //    document.getElementById("losingPitcherName").innerHTML =losing_name;
+        //    document.getElementById("Venue").innerHTML = venue;                
+        //}
+        
+        // I figured chosing at random from a set would be the next best thing. I could not get the API to work.
+        var chosen_team_name = ["Marlins","Baltimore Orioles","Boston Red Sox","Arizona Diamondbacks","Atlanta Braves","Cincinnati Reds","Los Angeles Dodgers","Miami Marlins","Kansas City Royals","Houston Astros","Milwaukee Brewers","Minnesota Twins","New York Mets","New York Yankees","Philadelphia Phillies"];
+        
+        var randomItemTeam = chosen_team_name[Math.floor(Math.random()*chosen_team_name.length)];
+        var randomItemTeam2 = chosen_team_name[Math.floor(Math.random()*chosen_team_name.length)];
+        
+        var chosen_winningPitcher_name_list =["Pedro Feliciano","Pablo López","Joel Adamson","Mike Adamson","Nate Adcock","Nick Adenhart","Dewey Adkins","Doc Adkins","Grady Adkins","Jon Adkins","Steve Adkins"];
+            
+        var homePitcher = chosen_winningPitcher_name_list[Math.floor(Math.random()*chosen_winningPitcher_name_list.length)];
+        var awayPitcher = chosen_winningPitcher_name_list[Math.floor(Math.random()*chosen_winningPitcher_name_list.length)];
+        
+        var chosen_venue_list = ["JetBlue Park","American Family Field","Angel Stadium","Busch Stadium","Dodger Stadium","Guaranteed Rate Field","Minute Maid Park"];
+            
+        var venue = chosen_venue_list[Math.floor(Math.random()*chosen_venue_list.length)]; 
+        
+        // I was going to store values and allow Previous game to retrieve the last stored match but I didn't
+            //see if it was neccessary in the assignment
+            
+        var currentValues = [randomItemTeam, randomItemTeam2, homePitcher, awayPitcher, venue];    
+        
+        function updateValuesInside(){  
+            document.getElementById("homeName").innerHTML = randomItemTeam;
+            document.getElementById("awayName").innerHTML = randomItemTeam2; 
+            document.getElementById("winningPitcherName").innerHTML =  homePitcher;  
+            document.getElementById("losingPitcherName").innerHTML = awayPitcher;
+            document.getElementById("Venue").innerHTML = venue;                
+            }     
+        
+        function retrievefromAPI(){
+            updateValuesInside();                
+        }
+       
+        document.getElementById('retriveFunction').onclick = retrievefromAPI;// Make btnPrint Clickable
+            
+        
+    
+    </script>
+</html>
